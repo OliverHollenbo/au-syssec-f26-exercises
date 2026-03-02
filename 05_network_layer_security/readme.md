@@ -128,7 +128,9 @@ $ openssl rsa -in private.pem -outform PEM -pubout -out public.pem
 
 Now restart mitmproxy with the command below:
 
+```
 $ mitmproxy --showhost -s mitm_pk.py
+```
 
 After that, go to `http://192.168.3.X/pk` and check that the public key was changed.
 
