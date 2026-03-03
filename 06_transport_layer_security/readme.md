@@ -54,7 +54,7 @@ After accepting the new certificate, you should be able to access the website no
 Make sure you access the Login page again and that captured credentials are still visible.
 
 Finally, install the `mitmproxy` certificate you downloaded previously in your *victim* device.
-On Android, this can be done in the *Encryption & credentials* part of the configuration.
+On Android, this can be done in the *Encryption & credentials* or *Certificates* part of the configuration.
 This will remove any warnings about untrusted self-signed certificates for any of the web servers in the `192.168.3.0` subnet.
 
 ## Exercise 3: Malicious-in-the-middle against HTTP in transparent mode
