@@ -2,7 +2,7 @@ This file contains hints for macOS and Windows.
 
 ## Windows (native)
 
-The mitmproxy [website](https://docs.mitmproxy.org/stable/howto-transparent/) has some hints to configure routing on Windows. You should also take the opportunity to disable the firewall.
+The mitmproxy [website](https://docs.mitmproxy.org/stable/howto-transparent/) has some hints to configure routing on Windows. Temporarily disabling the firewall may also help.
 
 ## MacOS
 
