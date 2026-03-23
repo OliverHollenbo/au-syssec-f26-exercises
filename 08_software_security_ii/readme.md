@@ -72,3 +72,4 @@ read 160 bytes from standard input
 cat flag.txt
 flag{this_is_not_the_flag}
 ```
+After you get the exploit working, change the Makefile to remove the `no-pie` compilation flag. Do you see any difference? Can you still exploit the binary?
