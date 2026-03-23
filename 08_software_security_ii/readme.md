@@ -43,7 +43,7 @@ For this you have to set the registers in the following way:
 
 
 
-## 3. Implementing the Exploit (Bonus)
+## 3. Implementing the Exploit
 
 The binary is also running on a server, and you can talk to it via
 [`netcat`](https://man.archlinux.org/man/netcat.1):
@@ -72,4 +72,8 @@ read 160 bytes from standard input
 cat flag.txt
 flag{this_is_not_the_flag}
 ```
-After you get the exploit working, change the Makefile to remove the `no-pie` compilation flag. Do you see any difference? Can you still exploit the binary?
+## 4. Bonus: ROP under system defenses
+
+After you get the exploit working, change the Makefile to remove the `-no-pie` compilation flag.
+
+Do you see any difference? Can you still exploit the binary?
