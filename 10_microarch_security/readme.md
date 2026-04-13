@@ -7,6 +7,13 @@ sensitive data.
 This exercise is heavily
 inspired by [SEED Labs](https://seedsecuritylabs.org/Labs_20.04/System/Spectre_Attack/).
 
+## Preliminaries
+
+Operating systems have implemented different strategies to patch microarchitectural security updates, like permanent firmware updates or hotpatching CPU microcode.
+Before you start, use this [script](https://github.com/speed47/spectre-meltdown-checker/blob/master/spectre-meltdown-checker.sh) to discover how vulnerable your current environment is.
+That will dictate if some of the vulnerabilities below are exploitable, such as Spectre.
+The instructor will also provide an alternative environment with unpatched vulnerabilities to facilitate the exercise.
+
 ## Exercise 1: Cache-based side-channel attacks
 
 The CPU cache is a hardware component that reduces the
