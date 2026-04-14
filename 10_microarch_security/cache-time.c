@@ -1,0 +1,54 @@
+#include <emmintrin.h>
+#include <x86intrin.h>
+#include <stdint.h>
+#include <stdio.h>
+
+uint8_t small_array[10];
+uint8_t array[10 * 4096];
+
+int main(int argc, const char **argv) {
+	int i, junk = 0;
+	register uint64_t time1, time2;
+	volatile uint8_t *addr;
+
+    // Initialize the array
+    for (i = 0; i < 10; i++)
+        small_array[i] = 1;
+
+    // FLUSH the array from the CPU cache
+    for (i = 0; i < 10; i++)
+        _mm_clflush(&small_array[i]);
+
+    // Access some of the array items
+    small_array[3] = 100;
+    small_array[7] = 200;
+    for (i = 0; i < 10; i++) {
+        addr = &small_array[i];
+        time1 = __rdtscp(&junk);
+        junk = *addr;
+        time2 = __rdtscp(&junk) - time1;
+        printf("Access time for small_array[%d]: %d CPU cycles\n", i,
+                (int)time2);
+    }
+
+	// Initialize the array
+	for (i = 0; i < 10; i++)
+		array[i * 4096] = 1;
+
+	// FLUSH the array from the CPU cache
+	for (i = 0; i < 10; i++)
+		_mm_clflush(&array[i * 4096]);
+
+	// Access some of the array items
+	array[3 * 4096] = 100;
+	array[7 * 4096] = 200;
+	for (i = 0; i < 10; i++) {
+		addr = &array[i * 4096];
+		time1 = __rdtscp(&junk);
+		junk = *addr;
+		time2 = __rdtscp(&junk) - time1;
+		printf("Access time for array[%d*4096]: %d CPU cycles\n", i,
+				(int)time2);
+	}
+	return 0;
+}
